@@ -1,23 +1,46 @@
-INSTRUCTIONS
-------------
+# Serenity Sage High School Management System
 
-1. Create a db in MySql named 'serenity_sage_high'
-2. Open project
-3. COnfigure application properties
-4. Run file
+This project is a school management system designed for **Serenity Sage High**.
 
-Note: a sample sql file is given for any issue that arises.
+## Instructions
 
-Credentials:
-------------
-Admin - username: admin
-        password: 1
+1. **Create a Database**:  
+   In MySQL, create a new database named **`serenity_sage_high`**.
 
-Student - username: S001
-        password: 123
+2. **Open the Project**:  
+   Open the project in your preferred IDE (e.g., NetBeans, IntelliJ).
 
-Teacher - username: T001
-        password: 123
+3. **Configure Application Properties**:  
+   Update the **application.properties** file with the correct database configuration (e.g., database URL, username, password).
 
-Parent - username: P001
-        password: 123
+4. **Run the File**:  
+   Once everything is configured, run the project to start the system.
+
+---
+
+## Credentials:
+
+### Admin
+- **Username**: `admin`
+- **Password**: `1`
+
+---
+
+## Screenshots:
+- **Login Page**  
+  ![Login Page Screenshot](screenshots/login.png)
+
+- **Registration Page**  
+  ![Registration Screenshot](screenshots/registration.png)
+
+- **Admin Dashboard**  
+  ![Admin Dashboard Screenshot](screenshots/admin.png)
+  ![Admin Dashboard Screenshot](screenshots/admin_subject.png)
+
+- **Student Dashboard**  
+  ![Student Dashboard Screenshot](screenshots/student.png)
+
+- **Teacher Dashboard**  
+  ![Teacher Dashboard Screenshot](screenshots/teacher.png)
+
+
