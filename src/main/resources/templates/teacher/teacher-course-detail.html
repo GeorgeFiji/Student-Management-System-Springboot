@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Details</title>
+</head>
+
+<body>
+	<h2 th:text="${course.name + ' Subjects Details'}"></h2>
+	
+	
+	
+ 
+	
+	<div th:if="${students.size() == 0}">There are no students in this subject. At least 1 student needed to view subject detail.</div>
+	
+	
+	<div th:if="${students.size() != 0}">
+	
+	<h3>Student List</h3>
+	
+	<div th:text="${'Students enrolled: ' + course.studentListSize()}"></div>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="student : ${students}">
+				<td th:text="${student.id}"></td>
+				<td th:text="${student.firstName}"></td>
+				<td th:text="${student.lastName}"></td>
+				<td th:text="${student.email}"></td>
+		</tbody>
+	</table>
+	
+	
+	<h3>Student Grades</h3>
+			
+	<table>
+		<tr th:each="element : ${studentGradeList}" >
+			<td>
+				<table>
+					<thead>
+						<tr>
+							<th>Student</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="student : ${element.key}">
+							<td th:text="${student.firstName + ' ' + student.lastName}"></td>
+						</tr>
+					</tbody>	
+				</table>
+			</td>
+			  	
+			<td>
+				<table>
+					<thead>
+						<tr>
+							<th>Mid Term 1</th>
+	 						<th>Term 1 End</th>
+	 						<th>Mid Term 2</th>
+                                                        <th>Term 2 End</th>
+	 						<th>Mid Term 3</th>
+	 						<th>Final</th>
+	 						<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="gradeDetails : ${element.value}">  
+							<td th:if="${gradeDetails.getGradeOne() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeOne() != -1}" th:text=${gradeDetails.gradeOne}></td>					
+							<td th:if="${gradeDetails.getGradeTwo() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeTwo() != -1}" th:text=${gradeDetails.gradeTwo}></td>
+							<td th:if="${gradeDetails.getGradeThree() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeThree() != -1}" th:text=${gradeDetails.gradeThree}></td>	
+                                                        
+                                                        <td th:if="${gradeDetails.getGradeFour() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeFour() != -1}" th:text=${gradeDetails.getGradeFour}></td>					
+							<td th:if="${gradeDetails.getGradeFive() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeFive() != -1}" th:text=${gradeDetails.getGradeFive}></td>
+							<td th:if="${gradeDetails.getGradeSix() == -1}">-</td>
+							<td th:if="${gradeDetails.getGradeSix() != -1}" th:text=${gradeDetails.getGradeSix}></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			
+		</tr>	  
+	</table>
+	
+	<a th:href="@{/teacher/{teacherId}/courses/{courseId}/editGrades(teacherId=${teacher.id}, courseId=${course.id})}">Edit Grades</a>
+	<a th:href="@{/teacher/{teacherId}/courses/{courseId}/generateReport(teacherId=${teacher.id}, courseId=${course.id})}">Report</a>
+
+	</div>
+	
+	 
+</body>
+
+</html>
+
+

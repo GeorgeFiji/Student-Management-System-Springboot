@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Schedule</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Your Schedule</h1>
+  <div th:if="${schedule == null}">
+    <p>You currently have no schedule assigned.</p>
+  </div>
+  <div th:unless="${schedule == null}">
+    <h2>Schedule Details:</h2>
+    <table>
+      <tr>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Days of Week</th>
+        <th>Venue</th>
+      </tr>
+      <tr>
+        <td th:text="${schedule.startTime}"></td>
+        <td th:text="${schedule.endTime}"></td>
+        <td th:text="${schedule.daysOfWeek}"></td>
+        <td th:text="${schedule.venue}"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher's Schedule</title>
+</head>
+<body>
+<h1>Teacher's Schedule</h1>
+
+<div th:if="${error}">
+  <p th:text="${error}"></p>
+</div>
+
+<div th:if="${schedule}">
+  <h2>Schedule Details</h2>
+  <p><strong>Start Time:</strong> <span th:text="${schedule.startTime}"></span></p>
+  <p><strong>End Time:</strong> <span th:text="${schedule.endTime}"></span></p>
+  <p><strong>Days of Week:</strong> <span th:text="${schedule.daysOfWeek}"></span></p>
+  <p><strong>Venue:</strong> <span th:text="${schedule.venue}"></span></p>
+</div>
+
+<a href="/teacher/panel">Back to Teacher Panel</a>
+</body>
+</html>

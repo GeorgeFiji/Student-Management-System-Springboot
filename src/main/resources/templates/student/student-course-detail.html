@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Subjects</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">
+	
+	
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-course-detail.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+	<nav>
+		<i class="fa fa-university"></i>
+		<h1>SERENITY SAGE HIGH</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${student.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/student/{studentId}/courses/{courseId}(studentId=${student.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+	
+	
+	<h3>Grades</h3>
+	  
+	<table>
+		<thead>
+			<tr>
+				<th id="table-top-left">Mid Term 1</th>
+				<th>Term 1</th>
+                                <th>Mid Term 2</th>
+                                <th>Term 2</th>
+                                <th>Mid Term 3</th>
+				<th id="table-top-right">Term 3</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td th:if="${gradeDetails.getGradeOne() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeOne() != -1}" th:text=${gradeDetails.gradeOne}></td>					
+				<td th:if="${gradeDetails.getGradeTwo() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeTwo() != -1}" th:text=${gradeDetails.gradeTwo}></td>
+				<td th:if="${gradeDetails.getGradeThree() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeThree() != -1}" th:text=${gradeDetails.gradeThree}></td>
+
+                                <td th:if="${gradeDetails.getGradeFour() == -1}">-</td>
+                                <td th:if="${gradeDetails.getGradeFour() != -1}" th:text=${gradeDetails.getGradeFour}></td>					
+                                <td th:if="${gradeDetails.getGradeFive() == -1}">-</td>
+                                <td th:if="${gradeDetails.getGradeFive() != -1}" th:text=${gradeDetails.getGradeFive}></td>
+                                <td th:if="${gradeDetails.getGradeSix() == -1}">-</td>
+                                <td th:if="${gradeDetails.getGradeSix() != -1}" th:text=${gradeDetails.getGradeSix}></td>
+
+			</tr>
+		</tbody>
+	</table>
+	
+	</div>
+</body>
+
+</html>

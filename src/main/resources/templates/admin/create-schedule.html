@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Schedule</title>
+</head>
+<body>
+<h2>Create Schedule</h2>
+
+<form th:action="@{/admin/schedule/save}" th:object="${schedule}" method="post">
+
+    <!-- Start Time -->
+    <label for="startTime">Start Time:</label>
+    <input type="time" id="startTime" th:field="*{startTime}" required/><br>
+
+    <!-- End Time -->
+    <label for="endTime">End Time:</label>
+    <input type="time" id="endTime" th:field="*{endTime}" required/><br>
+
+    <!-- Days of the Week -->
+    <label for="daysOfWeek">Days of Week:</label>
+    <input type="text" id="daysOfWeek" th:field="*{daysOfWeek}" placeholder="e.g. Monday, Wednesday" required/><br>
+
+    <!-- Venue -->
+    <label for="venue">Venue:</label>
+    <input type="text" id="venue" th:field="*{venue}" required/><br>
+
+    <!-- Select Teacher -->
+    <label for="teacher">Teacher:</label>
+    <select th:field="*{teacher}" required>
+        <option th:each="teacher : ${teachers}" th:value="${teacher.id}" th:text="${teacher.firstName} + ' ' + ${teacher.lastName}">
+        </option>
+    </select><br>
+
+    <!-- Select Students -->
+    <label for="students">Select Students:</label>
+    <select multiple th:field="*{students}">
+        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.firstName} + ' ' + ${student.lastName}">
+        </option>
+    </select><br>
+
+    <button type="submit">Create Schedule</button>
+</form>
+
+</body>
+</html>
