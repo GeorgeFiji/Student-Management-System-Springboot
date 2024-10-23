@@ -32,21 +32,29 @@ This project is a school management system designed for **Serenity Sage High**.
 
   ![Login Page Screenshot](screenshots/login.png)
 
+---
+
 ### 2. Registeration Page
 
   ![Registration Screenshot](screenshots/registeration.png)
+
+---
 
 ### 3. Admin Dashboard 
 
   ![Admin Dashboard Screenshot](screenshots/admin.png)
   ![Admin Dashboard Screenshot](screenshots/admin_subject.png)
 
+---
+
 ### 4. Student Dashboard
 
   ![Student Dashboard Screenshot](screenshots/student.png)
+
+---
 
 ### 5. Teacher Dashboard
 
   ![Teacher Dashboard Screenshot](screenshots/teacher.png)
 
-
+---
